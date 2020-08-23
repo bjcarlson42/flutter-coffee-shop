@@ -1,4 +1,6 @@
+import 'package:coffee_shop/models/Coffee.dart';
 import 'package:flutter/material.dart';
+import './coffee_card.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -15,6 +17,15 @@ class Body extends StatelessWidget {
               style: TextStyle(fontSize: 25.0),
             ),
             Categories(),
+            Expanded(
+              child: ListView.builder(
+                itemCount: coffeeList.length,
+                scrollDirection: Axis.vertical,
+                itemBuilder: (context, index) => CoffeeCard(
+                  coffee: coffeeList[index],
+                ),
+              ),
+            ),
           ],
         ),
       ),
