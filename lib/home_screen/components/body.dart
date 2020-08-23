@@ -1,5 +1,6 @@
 import 'package:coffee_shop/models/Coffee.dart';
 import 'package:flutter/material.dart';
+import 'package:coffee_shop/detail_screen/detail_screen.dart';
 import './coffee_card.dart';
 
 class Body extends StatelessWidget {
@@ -23,6 +24,14 @@ class Body extends StatelessWidget {
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) => CoffeeCard(
                   coffee: coffeeList[index],
+                  press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailScreen(
+                        coffee: coffeeList[index],
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
